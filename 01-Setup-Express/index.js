@@ -13,3 +13,7 @@ app.get('/', (request, response) => {
 app.get('/users', (request, response) => {
     response.send("This is list user!");
 });
+
+app.get('/login', (request, response) => {
+    response.send("This is login page");
+});
