@@ -1,7 +1,7 @@
 //Config Express Server
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 8080;
 
 //Config Pug Engine
 app.set('view engine', 'pug');
