@@ -21,6 +21,7 @@ var users = [
     { id: 2, name: "An", email: "an@abc.com" },
     { id: 3, name: "Tai", email: "tai@abc.com" },
     { id: 4, name: "Cuong", email: "cuong@abc.com" },
+    { id: 5, name: "Thuy", email: "thuy@abc.com" }
 ];
 
 //Index page
