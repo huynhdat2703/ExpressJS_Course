@@ -1,0 +1,14 @@
+h1 List User
+form(action="/search", method="get")
+    input(type="text", name="s", placeholder="Search...", value=searchKey : "")
+    button(type="submit") Search
+table
+    tr
+        th ID
+        th Name
+        th Email
+    each user in listUser
+        tr
+            td= user.id
+            td= user.name
+            td= user.email
