@@ -10,6 +10,7 @@ app.set('views', './views');
 //Start server
 app.listen(port);
 
+//Config User Data
 var users = [
     {id: 1, name: "Dat", email: "dat@abc.com"},
     {id: 2, name: "An", email: "an@abc.com"},
