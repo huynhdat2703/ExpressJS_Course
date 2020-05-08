@@ -13,7 +13,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //Start server
-app.listen(port);
+app.listen(port, () => {
+    console.log("Server is running on port", port);
+
+});
 
 //Config User Data
 var users = [
