@@ -1,0 +1,17 @@
+h1= title
+if errorMessage
+    label= errorMessage
+    br
+    br
+form(action="/login", method="post")
+    label Username   
+    span
+        input(type="text", name="username", placeholder="Enter Username...")
+        br
+        br
+    label Password   
+    span
+        input(type="password", name="password", placeholder="Enter Password...")
+        br
+        br
+        button Login
