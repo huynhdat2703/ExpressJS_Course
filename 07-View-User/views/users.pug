@@ -1,0 +1,15 @@
+h1 List User
+form(action="/search", method="get")
+    input(type="text", name="s", placeholder="Search...", value=searchKey : "")
+    button(type="submit") Search
+table
+    tr
+        th Name
+        th Function
+    each user in listUser
+        tr
+            td= user.name
+            td
+                a(href="/users/" + user.id) Detail
+br
+a(href="/add-user") Add New User

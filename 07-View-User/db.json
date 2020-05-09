@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": "figDoYizQ",
+      "name": "Dat",
+      "email": "dat@email.com",
+      "phone": "123456789"
+    },
+    {
+      "id": "lnMr24zEk",
+      "name": "Thuy",
+      "email": "thuy@email.com",
+      "phone": "123456789"
+    },
+    {
+      "id": "N_aL7MSJz",
+      "name": "An",
+      "email": "an@email.com",
+      "phone": "123456789"
+    },
+    {
+      "id": "-YlZogQlG",
+      "name": "Cuong",
+      "email": "cuong@email.com",
+      "phone": "123456789"
+    },
+    {
+      "id": "IkfwBXtUa",
+      "name": "Tai",
+      "email": "tai@email.com",
+      "phone": "123456789"
+    }
+  ]
+}
