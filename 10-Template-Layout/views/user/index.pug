@@ -1,0 +1,19 @@
+extends ../layouts/master.layout.pug
+block content
+    h1 List User
+    form(action="/user/search", method="get", class="form-inline")
+        input(type="text", name="s", placeholder="Search...", value=searchKey : "" class="form-control", aria-label="Search", aria-describedby="addon-wrapping")
+        button(class="btn btn-success") Search
+    table(class="table table-striped table-bordered") 
+        thead(class="thead-dark")
+            th Name
+            th Function
+        each user in listUser
+            tr
+                td= user.name
+                td
+                    a(href="/user/detail/" + user.id) Details
+    br
+    a(href="/user/add", class="btn btn-primary") Add New User!
+    br
+    br

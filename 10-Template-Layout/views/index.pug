@@ -1,0 +1,9 @@
+extends ./layouts/master.layout.pug
+block content
+    h1= title
+    if errorMessage
+        div(class="alert alert-danger", role="alert")=errorMessage
+    form(action="/login", method="post", class="form-inline")
+        input(type="text", name="username", class="form-control", placeholder="Enter Username...")
+        input(type="password", name="password", class="form-control", placeholder="Enter Password...")
+        button(class="btn btn-success") Login
