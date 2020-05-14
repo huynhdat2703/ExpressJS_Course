@@ -5,9 +5,16 @@ const express = require('express');
 const router = express.Router();
 
 /**
+ * Import User Middleware
+ */
+const userMiddleware = require('../middlewares/user.middleware');
+
+/**
  * Import User Controller
  */
 const userController = require('../controllers/user.controller');
+
+
 
 /**
  * List User Page
@@ -32,6 +39,6 @@ router.get('/add', userController.getAddUser);
 /**
  * Add User Page - POST
  */
-router.post('/add', userController.postAddUser);
+router.post('/add', userMiddleware.validateCreateUser, userController.postAddUser);
 
 module.exports = router;

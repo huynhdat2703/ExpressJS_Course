@@ -38,36 +38,14 @@ function getAddUser(req, res) {
 }
 
 function postAddUser(req, res) {
-    var errors = [];
+    db.get('users').push({
+        id: ShortID.generate(),
+        name: req.body.newName,
+        email: req.body.newEmail,
+        phone: req.body.newPhone
+    }).write();
 
-    if (req.body.newName === "") {
-        errors.push("Name is required.");
-    }
-
-    if (req.body.newEmail === "") {
-        errors.push("Email is required.");
-    }
-
-    if (req.body.newPhone === "") {
-        errors.push("Phone is required.");
-    }
-
-    if (errors.length >= 1) {
-        res.render('user/add', {
-            errors: errors,
-            data: req.body
-        });
-    }
-
-    else {
-        db.get('users').push({
-            id: ShortID.generate(),
-            name: req.body.newName,
-            email: req.body.newEmail,
-            phone: req.body.newPhone
-        }).write();
-        res.redirect('/user/');
-    }
+    res.redirect('/user/');
 }
 
 module.exports = {
