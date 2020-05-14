@@ -48,10 +48,17 @@ function postAddUser(req, res) {
     res.redirect('/user/');
 }
 
+function deteleUser(req, res) {
+    var userID = req.params.id;
+    db.get('users').remove({ id: userID }).write();
+    res.redirect('/user/');
+}
+
 module.exports = {
     userIndex,
     searchUser,
     findUser,
     getAddUser,
-    postAddUser
+    postAddUser,
+    deteleUser
 }

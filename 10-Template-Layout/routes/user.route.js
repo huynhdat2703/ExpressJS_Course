@@ -41,4 +41,9 @@ router.get('/add', userController.getAddUser);
  */
 router.post('/add', userMiddleware.validateCreateUser, userController.postAddUser);
 
+/**
+ * Delete User
+ */
+router.get('/delete/:id', userController.deteleUser);
+
 module.exports = router;
