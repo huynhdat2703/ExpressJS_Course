@@ -20,6 +20,7 @@ function searchUser(req, res) {
     var filterUsers = db.get('users').value().filter((user) => {
         return user.name.toLowerCase().includes(searchKey.toLowerCase());
     });
+
     res.render('user/index', {
         listUser: filterUsers,
         searchKey: searchKey
@@ -37,13 +38,36 @@ function getAddUser(req, res) {
 }
 
 function postAddUser(req, res) {
-    db.get('users').push({
-        id: ShortID.generate(),
-        name: req.body.newName,
-        email: req.body.newEmail,
-        phone: req.body.newPhone
-    }).write();
-    res.redirect('/user/');
+    var errors = [];
+
+    if (req.body.newName === "") {
+        errors.push("Name is required.");
+    }
+
+    if (req.body.newEmail === "") {
+        errors.push("Email is required.");
+    }
+
+    if (req.body.newPhone === "") {
+        errors.push("Phone is required.");
+    }
+
+    if (errors.length >= 1) {
+        res.render('user/add', {
+            errors: errors,
+            data: req.body
+        });
+    }
+
+    else {
+        db.get('users').push({
+            id: ShortID.generate(),
+            name: req.body.newName,
+            email: req.body.newEmail,
+            phone: req.body.newPhone
+        }).write();
+        res.redirect('/user/');
+    }
 }
 
 module.exports = {

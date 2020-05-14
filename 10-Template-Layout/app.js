@@ -45,9 +45,11 @@ app.get('/', (req, res) => {
  */
 app.post('/login', (req, res) => {
     var loginUser = req.body;
+
     if (loginUser.username === "admin" && loginUser.password === "123") {
-        res.redirect('/user');
+        res.redirect('/user/');
     }
+
     else {
         res.render('index', {
             title: "08-Express-Router",

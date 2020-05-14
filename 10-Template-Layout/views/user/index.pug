@@ -1,9 +1,11 @@
 extends ../layouts/master.layout.pug
 block content
     h1 List User
-    form(action="/user/search", method="get", class="form-inline")
-        input(type="text", name="s", placeholder="Search...", value=searchKey : "" class="form-control", aria-label="Search", aria-describedby="addon-wrapping")
-        button(class="btn btn-success") Search
+    div(class="")
+        form(action="/user/search", method="get", class="form-inline")
+            input(type="text", name="s", placeholder="Search...", value= searchKey ? searchKey : "", class="form-control", aria-label="Search", aria-describedby="addon-wrapping")
+            button(class="btn btn-success") Search
+            a(href="/user/add", class="btn btn-primary ml-auto") Add New User!
     table(class="table table-striped table-bordered") 
         thead(class="thead-dark")
             th Name
@@ -13,7 +15,3 @@ block content
                 td= user.name
                 td
                     a(href="/user/detail/" + user.id) Details
-    br
-    a(href="/user/add", class="btn btn-primary") Add New User!
-    br
-    br

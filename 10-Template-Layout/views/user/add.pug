@@ -1,16 +1,19 @@
 extends ../layouts/master.layout.pug
 block content
     h1 Add New User
+    if errors
+        each err in errors
+            div(class="alert alert-danger", role='alert')= err
     form(action="/user/add", method="post")
         div(class="input-group")
             div(class="input-group-prepend")
                 span(class="input-group-text" id="basic-addon1") Username
-                input(type="text", name="newName", class="form-control", placeholder="Enter Username...", aria-label="Username", aria-describedby="basic-addon1")
+                input(type="text", name="newName", class="form-control", placeholder="Enter Username...", value= data ? data.newName : "")
             div(class="input-group-prepend ml-5")
                 span(class="input-group-text" id="basic-addon1") Email
-                input(type="text", name="newEmail", class="form-control", placeholder="Enter Username...", aria-label="Username", aria-describedby="basic-addon1")
+                input(type="text", name="newEmail", class="form-control", placeholder="Enter Email...", value= data ? data.newEmail : "")
             div(class="input-group-prepend ml-5")
                 span(class="input-group-text" id="basic-addon1") Phone    
-                input(type="text", name="newPhone", class="form-control", placeholder="Enter Username...", aria-label="Username", aria-describedby="basic-addon1")
+                input(type="text", name="newPhone", class="form-control", placeholder="Enter Phone Number...", value= data ? data.newPhone : "")
             button(class="btn btn-primary ml-5") Add New User!
     
