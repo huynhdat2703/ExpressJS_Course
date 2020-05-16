@@ -28,7 +28,7 @@ app.use(cookieParser());
 /**
  * Import Login Middleware
  */
-const loginMiddleware = require('./middlewares/login.middleware');
+const cookieMiddleware = require('./middlewares/cookie.middleware');
 
 /**
  * Start Server
@@ -54,5 +54,5 @@ app.use('/login', loginRoute);
  * Import User Route
  */
 const userRoute = require('./routes/user.route');
-app.use('/user', loginMiddleware.checkCookie, userRoute);
+app.use('/user', cookieMiddleware.checkCookie, userRoute);
 

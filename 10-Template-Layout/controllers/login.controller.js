@@ -1,11 +1,19 @@
 /**
+ * Import module MD5
+ */
+const md5 = require('md5');
+
+/**
  * Import Database
  */
 const db = require('../util/db');
 
+/**
+ * Check Login User
+ */
 function checkLogin(req, res) {
     var email = req.body.email;
-    var phone = req.body.phone;
+    var password = md5(req.body.password);
 
     var loginUser = db.get('users').find({ email: email }).value();
 
@@ -14,8 +22,8 @@ function checkLogin(req, res) {
         return;
     }
 
-    if (loginUser.phone !== phone) {
-        res.render('index', { errorMessage: "Phone Number is wrong!" });
+    if (loginUser.password !== password) {
+        res.render('index', { errorMessage: "Password is wrong!" });
         return;
     }
 
@@ -23,15 +31,6 @@ function checkLogin(req, res) {
     res.redirect('/user/');
 }
 
-function checkCookie(req, res, next) {
-    if (!req.cookies.uID) {
-        res.redirect('/');
-        return;
-    }
-    next();
-}
-
 module.exports = {
-    checkLogin,
-    checkCookie
+    checkLogin
 };

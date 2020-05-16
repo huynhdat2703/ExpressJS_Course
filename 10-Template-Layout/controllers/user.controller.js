@@ -1,12 +1,17 @@
 /**
- * Import module DB
+ * Import module MD5
  */
-const db = require('../util/db');
+const md5 = require('md5');
 
 /**
  * Import module ShortID
  */
 const ShortID = require('shortid');
+
+/**
+ * Import module DB
+ */
+const db = require('../util/db');
 
 function userIndex(req, res) {
     var users = db.get('users').value();
@@ -41,6 +46,7 @@ function postAddUser(req, res) {
     db.get('users').push({
         id: ShortID.generate(),
         name: req.body.newName,
+        password: md5(req.body.newPassword),
         email: req.body.newEmail,
         phone: req.body.newPhone
     }).write();

@@ -3,32 +3,37 @@
     {
       "id": "figDoYizQ",
       "name": "Dat",
+      "password": "25f9e794323b453885f5181f1b624d0b",
       "email": "dat@email.com",
       "phone": "123456789"
     },
     {
-      "id": "lnMr24zEk",
+      "id": "1STTW_BqH",
       "name": "Thuy",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
       "email": "thuy@email.com",
-      "phone": "123456789"
+      "phone": "123456"
     },
     {
-      "id": "N_aL7MSJz",
+      "id": "oOr9k--Zd",
       "name": "An",
+      "password": "25d55ad283aa400af464c76d713c07ad",
       "email": "an@email.com",
-      "phone": "123456789"
+      "phone": "12345678"
     },
     {
-      "id": "-YlZogQlG",
-      "name": "Cuong",
-      "email": "cuong@email.com",
-      "phone": "123456789"
-    },
-    {
-      "id": "IkfwBXtUa",
+      "id": "4wHTyHU6F",
       "name": "Tai",
+      "password": "fcea920f7412b5da7be0cf42b8c93759",
       "email": "tai@email.com",
-      "phone": "123456789"
+      "phone": "1234567"
+    },
+    {
+      "id": "aPIbUF3Ta",
+      "name": "Cuong",
+      "password": "827ccb0eea8a706c4c34a16891f84e7b",
+      "email": "cuong@email.com",
+      "phone": "12345"
     }
   ]
 }

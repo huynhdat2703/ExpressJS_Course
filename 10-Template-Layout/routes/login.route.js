@@ -1,8 +1,17 @@
+/**
+ * Import Express & Router
+ */
 const express = require('express');
 const router = express.Router();
 
-const loginMiddleware = require('../middlewares/login.middleware');
+/**
+ * Import Login Middleware
+ */
+const loginController = require('../controllers/login.controller');
 
-router.post('/', loginMiddleware.checkLogin);
+/**
+ * Login Page
+ */
+router.post('/', loginController.checkLogin);
 
 module.exports = router;

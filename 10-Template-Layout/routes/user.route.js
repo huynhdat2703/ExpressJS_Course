@@ -40,7 +40,7 @@ router.get('/add', userController.getAddUser);
 /**
  * Add User Page - POST
  */
-router.post('/add', userMiddleware.validateCreateUser, userController.postAddUser);
+router.post('/add', userMiddleware.validateAddUser, userController.postAddUser);
 
 /**
  * Delete User
