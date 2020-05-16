@@ -11,6 +11,7 @@ const port = 3000;
 app.set('view engine', 'pug');
 app.set('views', './views');
 
+
 /**
  * Import body-parser Module
  */
@@ -19,10 +20,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 /**
- * Import User Route
+ * Import cookie-parser Module
  */
-const userRoute = require('./routes/user.route');
-app.use('/user', userRoute);
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
+/**
+ * Import Login Middleware
+ */
+const loginMiddleware = require('./middlewares/login.middleware');
 
 /**
  * Start Server
@@ -35,25 +41,18 @@ app.listen(port, () => {
  * Index Page
  */
 app.get('/', (req, res) => {
-    res.render('index', {
-        title: "08-Express-Router"
-    });
+    res.render('index');
 });
 
 /**
- * Login Page
+ * Import Login Route
  */
-app.post('/login', (req, res) => {
-    var loginUser = req.body;
+const loginRoute = require('./routes/login.route');
+app.use('/login', loginRoute);
 
-    if (loginUser.username === "admin" && loginUser.password === "123") {
-        res.redirect('/user/');
-    }
+/**
+ * Import User Route
+ */
+const userRoute = require('./routes/user.route');
+app.use('/user', loginMiddleware.checkCookie, userRoute);
 
-    else {
-        res.render('index', {
-            title: "08-Express-Router",
-            errorMessage: "Username or Password is wrong!"
-        });
-    }
-});
