@@ -55,3 +55,14 @@ app.use('/login', loginRoute);
 const userRoute = require('./routes/user.route');
 app.use('/user', cookieMiddleware.checkCookie, userRoute);
 
+/**
+ * Import Product Route
+ */
+const productRoute = require('./routes/product.route');
+app.use('/product', cookieMiddleware.checkCookie, productRoute);
+
+/**
+ * Import Logout Route
+ */
+const logoutRoute = require('./routes/logout.route');
+app.use('/logout', logoutRoute);

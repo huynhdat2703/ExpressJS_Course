@@ -1,7 +1,6 @@
 extends ../layouts/master.layout.pug
 block content
     h1 List User
-    h3(class="")= "Hello, " + loginUser.name
     form(action="/user/search", method="get", class="form-inline")
         input(type="text", name="s", placeholder="Search...", class="form-control", value= searchKey ? searchKey : "")
         button(class="btn btn-success") Search

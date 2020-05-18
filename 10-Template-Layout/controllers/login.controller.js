@@ -26,7 +26,7 @@ function checkLogin(req, res) {
         res.render('index', { errorMessage: "Password is wrong!" });
         return;
     }
-
+    res.locals.loginUser = loginUser;
     res.cookie('signedCookie', loginUser.id, { 'signed': true });
     res.redirect('/user/');
 }

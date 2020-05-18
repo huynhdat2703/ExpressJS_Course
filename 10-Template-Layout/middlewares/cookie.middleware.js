@@ -11,10 +11,10 @@ function checkCookie(req, res, next) {
         res.redirect('/');
         return;
     }
-    
+
     var loginUser = db.get('users').find({ id: req.signedCookies.signedCookie }).value();
     res.locals.loginUser = loginUser;
-    
+
     next();
 }
 
