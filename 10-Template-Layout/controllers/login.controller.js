@@ -27,7 +27,7 @@ function checkLogin(req, res) {
         return;
     }
 
-    res.cookie('uID', loginUser.id);
+    res.cookie('signedCookie', loginUser.id, { 'signed': true });
     res.redirect('/user/');
 }
 

@@ -11,7 +11,6 @@ const port = 3000;
 app.set('view engine', 'pug');
 app.set('views', './views');
 
-
 /**
  * Import body-parser Module
  */
@@ -23,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
  * Import cookie-parser Module
  */
 const cookieParser = require('cookie-parser');
-app.use(cookieParser());
+app.use(cookieParser('secret'));
 
 /**
  * Import Login Middleware
