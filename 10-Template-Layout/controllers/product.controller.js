@@ -1,4 +1,5 @@
 const db = require('../util/db');
+const ShortID = require('shortid');
 
 function showProducts(req, res) {
     var products = db.get('products').value();
@@ -24,6 +25,26 @@ function showProducts(req, res) {
     });
 }
 
+function getAddProduct(req, res) {
+    res.render('product/add');
+}
+
+function postAddProduct(req, res) {
+    var filePath = '/upload/' + req.file.filename;
+
+    db.get('products').unshift({
+        id: ShortID.generate(),
+        name: req.body.productName,
+        description: req.body.productDesc,
+        price: req.body.productPrice,
+        image: filePath
+    }).write();
+
+    res.redirect('/product/');
+}
+
 module.exports = {
-    showProducts
+    showProducts,
+    getAddProduct,
+    postAddProduct
 };

@@ -7,6 +7,7 @@ const db = require('../util/db');
  * Check Cookie
  */
 function checkCookie(req, res, next) {
+    
     if (!req.signedCookies.signedCookie) {
         res.redirect('/');
         return;

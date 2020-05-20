@@ -25,6 +25,11 @@ const cookieParser = require('cookie-parser');
 app.use(cookieParser('secret'));
 
 /**
+ * Set static folder
+ */
+app.use(express.static('public'));
+
+/**
  * Import Login Middleware
  */
 const cookieMiddleware = require('./middlewares/cookie.middleware');

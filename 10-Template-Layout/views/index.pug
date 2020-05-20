@@ -9,8 +9,8 @@ body
         if errorMessage
             div(class="alert alert-danger", role="alert")=errorMessage
         form(action="/login", method="post", class="form-inline")
-            input(type="text", name="email", class="form-control", placeholder="Enter Email...")
-            input(type="password", name="password", class="form-control", placeholder="Enter Password...")
+            input(type="text", name="email", class="form-control", placeholder="Enter Email...", autocomplete="email")
+            input(type="password", name="password", class="form-control", placeholder="Enter Password...", autocomplete="current-password")
             button(class="btn btn-success") Login
         footer
             div Designed and built with all the love in the world by the Bootstrap team with the help of our contributors.

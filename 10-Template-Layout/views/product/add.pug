@@ -1,0 +1,19 @@
+extends ../layouts/master.layout.pug
+block content
+    div(class="container")
+        h1 Add New Product
+        if errors
+            each err in errors
+                div(class="alert alert-danger", role='alert')= err
+        form(action="/product/add", method="post", enctype="multipart/form-data")
+            div(class="row")
+                div(class="col-md-6 form-group")
+                    input(type="text", name="productName", class="form-control", placeholder="Product Name...")
+                div(class="col-md-6 form-group")
+                    input(type="textarea", name="productDesc", class="form-control", placeholder="Enter Description...")
+            div(class="row")
+                div(class="col-md-6 form-group")
+                    input(type="number", name="productPrice", class="form-control", placeholder="Enter Price...")
+                div(class="col-md-6 form-group")
+                    input(type="file", name="productImage", class="form-control-file", placeholder="Enter Phone Number...")
+            button(class="btn btn-primary") Add New Product!
